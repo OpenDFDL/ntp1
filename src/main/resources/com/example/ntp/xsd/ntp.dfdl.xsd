@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:fn="http://www.w3.org/2005/xpath-functions"
+  xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+  xmlns:ntp="urn:ntp"
+  targetNamespace="urn:ntp"
+  elementFormDefault="unqualified">
+
+  <include schemaLocation="type.dfdl.xsd" />
+
+  <annotation>
+    <appinfo source="http://www.ogf.org/dfdl/">
+      <dfdl:format ref="ntp:baseFormat" />
+    </appinfo>
+  </annotation>
+
+  <element name="Ntp">
+    <complexType>
+      <sequence>
+        <element name="LI" type="LItype"/>
+        <element name="VN" type="VNtype"/>
+        <element name="Mode" type="Modetype"/>
+        <element name="Stratum" type="Stratumtype"/>
+        <element name="Poll" type="Polltype"/>
+        <element name="Precision" type="Precisiontype"/>
+        <element name="RootDelay" type="RootDelaytype"/>
+        <element name="RootDispersion" type="RootDispersiontype"/>
+        <element name="ReferenceID" type="ReferenceIDtype"/>
+        <element name="ReferenceTimestamp" type="ReferenceTimestamptype"/>
+        <element name="OriginTimestamp" type="Originimestamptype"/>
+        <element name="ReceiveTimestamp" type="ReceiveTimestamptype"/>
+        <element name="TransmitTimestamp" type="TransmitTimestamptype"/>
+        <element name="ExtensionField1" type="ExtensionField1type"/>
+        <element name="ExtensionField2" type="ExtensionField2type"/>
+        <element name="KeyIdentifier" type="KeyIdentifiertype"/>
+        <element name="dgst" type="dgsttype"/>
+
+      </sequence>
+    </complexType>
+  </element>
+
+</schema>
