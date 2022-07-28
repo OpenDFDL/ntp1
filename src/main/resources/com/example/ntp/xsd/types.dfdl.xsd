@@ -24,6 +24,7 @@
             <dfdl:format ref="ntp:baseFormat" />
         </appinfo>
     </annotation>
+
 <simpleType name="ntpinttype" dfdl:lengthKind="explicit" dfdl:lengthUnits="bits" >
     <restriction base="xs:unsignedInt"/>
 </simpleType>
@@ -52,7 +53,7 @@
     </simpleType>
 
     <simpleType name="Modetype"  dfdl:length="3">
-        <restriction base="ntp:ntpinttype">
+      <restriction base="ntp:ntpinttype">
         <xs:enumeration value="0"/>
         <xs:enumeration value="1"/>
         <xs:enumeration value="2"/>
@@ -61,7 +62,7 @@
         <xs:enumeration value="5"/>
         <xs:enumeration value="6"/>
         <xs:enumeration value="7"/>
-        </restriction>
+      </restriction>
     </simpleType>
 
     <simpleType name="Stratumtype"  dfdl:length="8">
