@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:fn="http://www.w3.org/2005/xpath-functions"
+        xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+        xmlns:ntp="urn:ntp"
+        targetNamespace="urn:ntp"
+        elementFormDefault="unqualified">
+
+    <include schemaLocation="org/apache/daffodil/xsd/DFDLGeneralFormat.dfdl.xsd" />
+
+    <annotation>
+        <appinfo source="http://www.ogf.org/dfdl/">
+            <dfdl:defineFormat name="baseFormat">
+                    <dfdl:format ref="ntp:GeneralFormat"
+             representation="binary"
+             byteOrder="bigEndian"/>
+            </dfdl:defineFormat>
+            <dfdl:format ref="ntp:baseFormat" />
+        </appinfo>
+    </annotation>
+<simpleType name="ntpinttype" dfdl:lengthKind="explicit" dfdl:lengthUnits="bits">
+    <restriction base="xs:unsignedInt"/>
+</simpleType>
+
+    <simpleType name="ntpWordtype" dfdl:lengthKind="explicit" dfdl:lengthUnits="bits" dfdl:length="32">
+        <restriction base="xs:unsignedInt"/>
+    </simpleType>
+
+    <simpleType name="ntpDoubleWordtype" dfdl:lengthKind="explicit" dfdl:lengthUnits="bits" dfdl:length="64">
+        <restriction base="xs:unsignedInt"/>
+    </simpleType>
+
+    <simpleType name="LItype"  dfdl:length="2">
+        <restriction base="ntp:ntpinttype"/>
+        <xs:enumeration value="0"/>
+        <xs:enumeration value="1"/>
+        <xs:enumeration value="2"/>
+        <xs:enumeration value="3"/>
+
+    </simpleType>
+
+    <simpleType name="VNtype"  dfdl:length="3">
+        <restriction base="ntp:ntpinttype"/>
+        <xs:enumeration value="3"/>
+
+    </simpleType>
+
+    <simpleType name="Modetype"  dfdl:length="3">
+        <restriction base="ntp:ntpinttype"/>
+        <xs:enumeration value="0"/>
+        <xs:enumeration value="1"/>
+        <xs:enumeration value="2"/>
+        <xs:enumeration value="3"/>
+        <xs:enumeration value="4"/>
+        <xs:enumeration value="5"/>
+        <xs:enumeration value="6"/>
+        <xs:enumeration value="7"/>
+    </simpleType>
+
+    <simpleType name="Stratumtype"  dfdl:length="8">
+        <restriction base="ntp:ntpinttype"/>
+    </simpleType>
+
+    <simpleType name="Polltype"  dfdl:length="8">
+        <restriction base="ntp:ntpinttype"/>
+    </simpleType>
+
+    <simpleType name="Precisiontype"  dfdl:length="8">
+        <restriction base="ntp:ntpinttype"/>
+    </simpleType>
+
+    <simpleType name="RootDelaytype"  >
+        <restriction base="ntp:ntpWordtype"/>
+    </simpleType>
+
+    <simpleType name="RootDispersiontype"  >
+        <restriction base="ntp:ntpWordtype"/>
+    </simpleType>
+
+    <simpleType name="ReferenceIDtype"  >
+        <restriction base="ntp:ntpWordtype"/>
+    </simpleType>
+
+    <simpleType name="ReferenceTimestamptype"  >
+        <restriction base="ntp:ntpDoubleWordtype"/>
+    </simpleType>
+
+    <simpleType name="OriginTimestamptype"  >
+        <restriction base="ntp:ntpDoubleWordtype"/>
+    </simpleType>
+
+    <simpleType name="ReceiveTimestamptype"  >
+        <restriction base="ntp:ntpDoubleWordtype"/>
+    </simpleType>
+
+    <simpleType name="TransmitTimestamptype"  >
+        <restriction base="ntp:ntpDoubleWordtype"/>
+    </simpleType>
+
+    <complexType name="ExtensionFieldtype"  >
+        <sequence>
+                <element name="FieldType" type="ntp:ntpinttype" dfdl:length="16"/>
+                <element name="Length" type="ntp:ntpinttype" dfdl:length="16"/>
+                <element name="Value" type="xs:hexBinary" dfdl:lengthKind="explicit" dfdl:length="{../Length}"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="KeyIdentifiertype"  >
+        <restriction base="ntp:ntpWordtype"/>
+    </simpleType>
+
+    <simpleType name="dgsttype"  >
+        <restriction base="ntp:ntpDoubleWordtype"/>
+    </simpleType>
+</schema>
