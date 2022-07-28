@@ -9,7 +9,7 @@
   targetNamespace="urn:ntp"
   elementFormDefault="unqualified">
 
-  <include schemaLocation="type.dfdl.xsd" />
+  <include schemaLocation="types.dfdl.xsd" />
 
   <annotation>
     <appinfo source="http://www.ogf.org/dfdl/">
@@ -20,23 +20,22 @@
   <element name="Ntp">
     <complexType>
       <sequence>
-        <element name="LI" type="LItype"/>
-        <element name="VN" type="VNtype"/>
-        <element name="Mode" type="Modetype"/>
-        <element name="Stratum" type="Stratumtype"/>
-        <element name="Poll" type="Polltype"/>
-        <element name="Precision" type="Precisiontype"/>
-        <element name="RootDelay" type="RootDelaytype"/>
-        <element name="RootDispersion" type="RootDispersiontype"/>
-        <element name="ReferenceID" type="ReferenceIDtype"/>
-        <element name="ReferenceTimestamp" type="ReferenceTimestamptype"/>
-        <element name="OriginTimestamp" type="Originimestamptype"/>
-        <element name="ReceiveTimestamp" type="ReceiveTimestamptype"/>
-        <element name="TransmitTimestamp" type="TransmitTimestamptype"/>
-        <element name="ExtensionField1" type="ExtensionField1type"/>
-        <element name="ExtensionField2" type="ExtensionField2type"/>
-        <element name="KeyIdentifier" type="KeyIdentifiertype"/>
-        <element name="dgst" type="dgsttype"/>
+        <element name="LI" type="ntp:LItype"/>
+        <element name="VN" type="ntp:VNtype"/>
+        <element name="Mode" type="ntp:Modetype"/>
+        <element name="Stratum" type="ntp:Stratumtype"/>
+        <element name="Poll" type="ntp:Polltype"/>
+        <element name="Precision" type="ntp:Precisiontype"/>
+        <element name="RootDelay" type="ntp:RootDelaytype"/>
+        <element name="RootDispersion" type="ntp:RootDispersiontype"/>
+        <element name="ReferenceID" type="ntp:ReferenceIDtype"/>
+        <element name="ReferenceTimestamp" type="ntp:ReferenceTimestamptype"/>
+        <element name="OriginTimestamp" type="ntp:OriginTimestamptype"/>
+        <element name="ReceiveTimestamp" type="ntp:ReceiveTimestamptype"/>
+        <element name="TransmitTimestamp" type="ntp:TransmitTimestamptype"/>
+        <!-- element name="ExtensionField" type="ntp:ExtensionFieldtype" minOccurs="0" maxOccurs="unbounded" dfdl:occursCountKind="implicit"/-->
+        <!-- element name="KeyIdentifier" type="ntp:KeyIdentifiertype" minOccurs="0" dfdl:occursCountKind="implicit"/-->
+        <!--element name="dgst" type="ntp:dgsttype" minOccurs="0" dfdl:occursCountKind="implicit"/-->
 
       </sequence>
     </complexType>
