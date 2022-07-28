@@ -13,10 +13,10 @@
 
   <parserTestCase name="test_ntp_01" root="Ntp" model="com/example/ntp/xsd/ntp.dfdl.xsd">
     <document>
-      <documentPart type="file">test_01.dat</documentPart>
+      <documentPart type="file">com/example/ntp/data/0/dat/3.dat</documentPart>
     </document>
     <infoset>
-      <dfdlInfoset type="file">test_01.dat.xml</dfdlInfoset>
+      <dfdlInfoset type="file">com/example/ntp/data/0/xml/3.dat.xml</dfdlInfoset>
     </infoset>
   </parserTestCase>
 

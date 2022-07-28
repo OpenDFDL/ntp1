@@ -14,14 +14,18 @@
     <annotation>
         <appinfo source="http://www.ogf.org/dfdl/">
             <dfdl:defineFormat name="baseFormat">
-                    <dfdl:format ref="ntp:GeneralFormat"
-             representation="binary"
-             byteOrder="bigEndian"/>
+                    <dfdl:format
+                            ref="ntp:GeneralFormat"
+                            representation="binary"
+                            byteOrder="bigEndian"
+                            alignmentUnits="bits"
+                            alignment="1"/>
             </dfdl:defineFormat>
             <dfdl:format ref="ntp:baseFormat" />
         </appinfo>
     </annotation>
-<simpleType name="ntpinttype" dfdl:lengthKind="explicit" dfdl:lengthUnits="bits">
+
+<simpleType name="ntpinttype" dfdl:lengthKind="explicit" dfdl:lengthUnits="bits" >
     <restriction base="xs:unsignedInt"/>
 </simpleType>
 
@@ -30,26 +34,26 @@
     </simpleType>
 
     <simpleType name="ntpDoubleWordtype" dfdl:lengthKind="explicit" dfdl:lengthUnits="bits" dfdl:length="64">
-        <restriction base="xs:unsignedInt"/>
+        <restriction base="xs:unsignedLong"/>
     </simpleType>
 
     <simpleType name="LItype"  dfdl:length="2">
-        <restriction base="ntp:ntpinttype"/>
+        <restriction base="ntp:ntpinttype">
         <xs:enumeration value="0"/>
         <xs:enumeration value="1"/>
         <xs:enumeration value="2"/>
         <xs:enumeration value="3"/>
-
+        </restriction>
     </simpleType>
 
     <simpleType name="VNtype"  dfdl:length="3">
-        <restriction base="ntp:ntpinttype"/>
-        <xs:enumeration value="3"/>
-
+        <restriction base="ntp:ntpinttype">
+        <xs:enumeration value="4"/>
+        </restriction>
     </simpleType>
 
     <simpleType name="Modetype"  dfdl:length="3">
-        <restriction base="ntp:ntpinttype"/>
+      <restriction base="ntp:ntpinttype">
         <xs:enumeration value="0"/>
         <xs:enumeration value="1"/>
         <xs:enumeration value="2"/>
@@ -58,6 +62,7 @@
         <xs:enumeration value="5"/>
         <xs:enumeration value="6"/>
         <xs:enumeration value="7"/>
+      </restriction>
     </simpleType>
 
     <simpleType name="Stratumtype"  dfdl:length="8">
@@ -100,7 +105,7 @@
         <restriction base="ntp:ntpDoubleWordtype"/>
     </simpleType>
 
-    <complexType name="ExtensionFieldtype"  >
+    <complexType name="ExtensionFieldtype">
         <sequence>
                 <element name="FieldType" type="ntp:ntpinttype" dfdl:length="16"/>
                 <element name="Length" type="ntp:ntpinttype" dfdl:length="16"/>
@@ -108,7 +113,7 @@
         </sequence>
     </complexType>
 
-    <simpleType name="KeyIdentifiertype"  >
+    <simpleType name="KeyIdentifiertype">
         <restriction base="ntp:ntpWordtype"/>
     </simpleType>
 
